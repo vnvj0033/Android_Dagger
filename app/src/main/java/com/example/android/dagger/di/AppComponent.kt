@@ -17,3 +17,4 @@ interface AppComponent {
 
     fun inject(activity: RegistrationActivity)
 }
+
