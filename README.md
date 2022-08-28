@@ -1,3 +1,25 @@
+
+## Component annotation
+Component는 interface or abstract로 구현
+객체 주입의 컴포넘트가 됨
+```kotlin
+@Component
+interface AppComponent {
+    // Classes that can be injected by this Component
+    fun inject(activity: RegistrationActivity)
+}
+```
+
+## Inject annotation
+주입 대상 객체에 Inject를 사용해 주입 대상 알림
+```kotlin
+// ViewModel in registration
+class RegistrationViewModel @Inject constructor(val userManager: UserManager)
+
+// in RegistrationActivity
+@Inject lateinit var registrationViewModel: RegistrationViewModel
+```
+
 # Using Dagger in your Android app
 
 This folder contains the source code for the "Using Dagger in your Android app" codelab.
