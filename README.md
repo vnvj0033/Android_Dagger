@@ -1,4 +1,26 @@
 
+
+## Binds annotation
+추상함수에 가능 Dagger의 구현임을 알림
+매개변수와 반환 타입이 핵심
+```kotlin
+@Module
+abstract class StorageModule {
+    
+    @Binds
+    abstract fun provideStorage(storage: SharedPreferencesStorage): Storage
+}
+
+```
+
+## Module annotation
+Module 은 @Provides와 @Binds를 사용해 주입 인스턴스를 알림 
+```kotlin
+@Module
+abstract class StorageModule
+```
+
+
 ## Component annotation
 Component는 interface or abstract로 구현
 객체 주입의 컴포넘트가 됨
