@@ -1,8 +1,24 @@
 
-## 
+## Component.Factory annotation
+필요한 매개변수를 바인딩하여 create한다. 
+````kotlin
+@Component(modules = [StorageModule::class])
+interface AppComponent {
+    
+    @Component.Factory
+    interface Factory {
+        fun create(@BindsInstance context: Context): AppComponent
+    }
+}
+
+// use to
+DaggerAppComponent
+    .factory()
+    .create(this)
+````
 
 ## BindsInstance annotation
-해당 매계변수가 필요함을 알림
+해당 매개변수가 필요함을 알림
 보통 context주입에 사용
 ```kotlin
 @Component(modules = [AppModule::class])
@@ -15,8 +31,6 @@ interface AppComponent {
 
         fun build(): AppComponent
     }
-
-    fun inject(activity: RegistrationActivity)
 }
 
 // AppModule
