@@ -1,7 +1,39 @@
 
+## 
+
+## BindsInstance annotation
+해당 매계변수가 필요함을 알림
+보통 context주입에 사용
+```kotlin
+@Component(modules = [StorageModule::class])
+interface AppComponent {
+    
+    @Component.Builder
+    interface Builder {
+        fun appModule(appModule: AppModule) : Builder
+
+        fun build() : AppComponent
+    }
+
+    fun inject(activity: RegistrationActivity)
+}
+
+// AppModule
+@Module
+class AppModule(val context: Context) {
+
+    @Provides
+    fun providecontext() : Context = context
+}
+
+// use to
+DaggerAppComponent.builder()
+    .appModule(AppModule(this))
+    .build()
+```
 
 ## Binds annotation
-추상함수에 가능 Dagger의 구현임을 알림
+추상함수에 가능 Dagger의 구현임을 알림 (코드량 감소 이득)
 매개변수와 반환 타입이 핵심
 ```kotlin
 @Module
