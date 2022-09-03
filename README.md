@@ -5,14 +5,15 @@
 해당 매계변수가 필요함을 알림
 보통 context주입에 사용
 ```kotlin
-@Component(modules = [StorageModule::class])
+@Component(modules = [AppModule::class])
 interface AppComponent {
-    
+
     @Component.Builder
     interface Builder {
-        fun appModule(appModule: AppModule) : Builder
+        @BindsInstance
+        fun application(context: Context): Builder
 
-        fun build() : AppComponent
+        fun build(): AppComponent
     }
 
     fun inject(activity: RegistrationActivity)
@@ -20,15 +21,15 @@ interface AppComponent {
 
 // AppModule
 @Module
-class AppModule(val context: Context) {
-
+class AppModule {
+    
     @Provides
-    fun providecontext() : Context = context
+    fun provideTestClass(context: Context): TestClass = TestClass(context)
 }
 
 // use to
 DaggerAppComponent.builder()
-    .appModule(AppModule(this))
+    .application(this)
     .build()
 ```
 
