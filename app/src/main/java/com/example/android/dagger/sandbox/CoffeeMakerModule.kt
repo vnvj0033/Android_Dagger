@@ -9,5 +9,5 @@ class CoffeeMakerModule {
     fun provideHeater(): Heater = A_Heater()
 
     @Provides
-    fun providePump(heater: Heater): Pump = A_Pump(heater)
+    fun provideCoffeeMaker(heater: Heater): CoffeeMaker = CoffeeMaker(heater, A_Pump(heater))
 }
