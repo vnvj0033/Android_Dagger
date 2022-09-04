@@ -1,9 +1,8 @@
 package com.example.android.dagger.sandbox
 
 import android.util.Log
-import javax.inject.Inject
 
-class CoffeeMaker(val heater: Heater, val pump: Pump) {
+class CoffeeMaker (private val heater: Heater, private val pump: Pump) {
 
     fun brew() {
         heater.on()
@@ -17,31 +16,29 @@ class CoffeeMaker(val heater: Heater, val pump: Pump) {
 interface Heater {
     fun on()
     fun off()
-    fun isHeat(): Boolean
+    fun isHot(): Boolean
 }
 
 interface Pump {
     fun pump()
+    fun getHeater(): Heater
 }
 
 class A_Heater : Heater {
-    private var heat = false
-    override fun on() {
-        heat = true
-    }
-
-    override fun off() {
-        heat = false
-    }
-
-    override fun isHeat(): Boolean = heat
+    private var heating = false
+    override fun on() { heating = true }
+    override fun off() { heating = false }
+    override fun isHot(): Boolean = heating
 
 }
 
-class A_Pump(private val heater: Heater) :Pump {
+class A_Pump(private var heater: Heater) :Pump {
+
     override fun pump() {
-        if (heater.isHeat()) {
+        if (heater.isHot()) {
             Log.d("A_Pump", "pimping!")
         }
     }
+
+    override fun getHeater() = heater
 }
