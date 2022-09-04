@@ -6,12 +6,17 @@ import javax.inject.Inject
 
 class SandboxActivity: AppCompatActivity() {
 
-    @Inject lateinit var foo: Foo
+
+    @Inject
+    lateinit var heater: Heater
+
+    @Inject
+    lateinit var pump: Pump
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        (applicationContext as SandboxApplication).appComponent.inject(this)
         super.onCreate(savedInstanceState)
-
-        foo
+        DaggerCoffeeComponent.create().inject(this)
+        val coffeeMaker = CoffeeMaker(heater, pump)
+        coffeeMaker.brew()
     }
 }

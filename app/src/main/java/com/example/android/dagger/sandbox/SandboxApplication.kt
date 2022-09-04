@@ -17,16 +17,6 @@
 package com.example.android.dagger.sandbox
 
 import android.app.Application
-import com.example.android.dagger.di.DaggerAppComponent
-import com.example.android.dagger.sandbox.DaggerApplicationComponent
-import com.example.android.dagger.storage.SharedPreferencesStorage
-import com.example.android.dagger.user.UserManager
 
 open class SandboxApplication : Application() {
-
-    val appComponent = DaggerApplicationComponent.create()
-
-    open val userManager by lazy {
-        UserManager(SharedPreferencesStorage(this))
-    }
 }
