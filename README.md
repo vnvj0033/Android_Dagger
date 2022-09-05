@@ -1,4 +1,33 @@
 
+## Injecting the graph into an Activity
+````kotlin
+@Component(modules = [StorageModule::class])
+interface AppComponent {
+
+    @Component.Factory
+    interface Factory {
+        fun create(@BindsInstance context: Context): AppComponent
+    }
+
+    fun inject(activity: MainActivity)
+}
+
+// in Application
+val appComponent: AppComponent by lazy {
+    DaggerAppComponent.factory().create(applicationContext)
+}
+
+// in Activity
+
+@Inject lateinit var registrationViewModel: RegistrationViewModel
+
+override fun onCreate(savedInstanceState: Bundle?) {
+    (application as MyApplication).appComponent.inject(this)
+    super.onCreate(savedInstanceState)
+    ...
+}
+````
+
 ## Component.Factory annotation
 필요한 매개변수를 바인딩하여 create한다. 
 ````kotlin
@@ -11,10 +40,8 @@ interface AppComponent {
     }
 }
 
-// use to
-DaggerAppComponent
-    .factory()
-    .create(this)
+// use in Application
+DaggerAppComponent.factory().create(applicationContext)
 ````
 
 ## BindsInstance annotation
@@ -33,17 +60,9 @@ interface AppComponent {
     }
 }
 
-// AppModule
-@Module
-class AppModule {
-    
-    @Provides
-    fun provideTestClass(context: Context): TestClass = TestClass(context)
-}
-
 // use to
 DaggerAppComponent.builder()
-    .application(this)
+    .application(context)
     .build()
 ```
 
