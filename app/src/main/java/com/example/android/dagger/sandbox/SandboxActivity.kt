@@ -1,7 +1,6 @@
 package com.example.android.dagger.sandbox
 
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import javax.inject.Inject
 
@@ -11,7 +10,7 @@ class SandboxActivity: AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        DaggerCoffeeComponent.create().inject(this)
+        DaggerCoffeeComponent.factory().create(this).inject(this)
 
         coffeeMaker.brew()
     }
