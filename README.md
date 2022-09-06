@@ -1,3 +1,17 @@
+## custome scope
+````kotlin
+// make custom scope
+@Scope
+@Retention(AnnotationRetention.RUNTIME)
+annotation class CustomScope
+
+@CustomScope
+@Component(modules = [StorageModule::class])
+interface AppComponent { ... }
+
+@CustomScope
+class UserManager @Inject constructor(private val storage: Storage) { ... }
+````
 
 ## Using scope
 Conponent에서 제공하는 객체를 싱글턴으로 제공 
