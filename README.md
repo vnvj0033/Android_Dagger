@@ -1,4 +1,16 @@
 
+## Using scope
+Conponent에서 제공하는 객체를 싱글턴으로 제공 
+````kotlin
+@Singleton
+@Component(modules = [StorageModule::class])
+interface AppComponent { ... }
+
+@Singleton
+class UserManager @Inject constructor(private val storage: Storage) { ... }
+
+````
+
 ## Injecting the graph into an Activity
 ````kotlin
 @Component(modules = [StorageModule::class])
