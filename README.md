@@ -1,3 +1,32 @@
+
+## Subcomponent
+````kotlin
+@Subcomponent
+interface RegistrationComponent {
+    @Subcomponent.Factory
+    interface Factory {
+        fun create(): RegistrationComponent
+    }
+
+    fun inject(activity: RegistrationActivity)
+}
+
+@Module(subcomponents = [RegistrationComponent::class])
+class AppSubcomponents
+    
+@Singleton
+@Component(modules = [StorageModule::class, AppSubcomponents::class])
+interface AppComponent {
+
+    @Component.Factory
+    interface Factory {
+        fun create(@BindsInstance context: Context): AppComponent
+    }
+    
+    fun registrationComponent(): RegistrationComponent.Factory
+}
+````
+
 ## custome scope
 ````kotlin
 // make custom scope
