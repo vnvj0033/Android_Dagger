@@ -10,7 +10,7 @@ class SandboxActivity: AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        DaggerCoffeeComponent.factory().create(this).inject(this)
+//        DaggerCoffeeComponent.factory().create(this).inject(this)
 
         // use Subcomponent
         DaggerCoffeeComponent.factory().create(this).appSubcomponentsModule().create(this).inject(this)
