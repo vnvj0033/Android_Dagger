@@ -1,6 +1,7 @@
 package com.example.android.dagger.di
 
 import android.content.Context
+import com.example.android.dagger.login.LoginComponent
 import com.example.android.dagger.main.MainActivity
 import com.example.android.dagger.registration.RegistrationActivity
 import com.example.android.dagger.registration.RegistrationComponent
@@ -22,10 +23,8 @@ interface AppComponent {
     }
 
     fun registrationComponent(): RegistrationComponent.Factory
+    fun loginComponent(): LoginComponent.Factory
 
-    fun inject(activity: RegistrationActivity)
-    fun inject(fragment: EnterDetailsFragment)
-    fun inject(fragment: TermsAndConditionsFragment)
     fun inject(activity: MainActivity)
 }
 
