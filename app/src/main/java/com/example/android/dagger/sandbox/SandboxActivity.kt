@@ -12,6 +12,9 @@ class SandboxActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         DaggerCoffeeComponent.factory().create(this).inject(this)
 
+        // use Subcomponent
+        DaggerCoffeeComponent.factory().create(this).appSubcomponentsModule().create(this).inject(this)
+
         coffeeMaker.brew()
     }
 }
