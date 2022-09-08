@@ -1,6 +1,7 @@
 
 ## Subcomponent
 Component <- Module <- Subcomponent
+Subcomponent를 사용해 Component의 Module을 분리
 ````kotlin
 @Subcomponent
 interface RegistrationComponent {
