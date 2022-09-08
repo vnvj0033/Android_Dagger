@@ -28,6 +28,7 @@ interface AppComponent {
 ````
 
 ## custome scope
+커스텀 어노테이션으로 객체 싱글턴 scope 분리 가능
 ````kotlin
 // make custom scope
 @Scope
