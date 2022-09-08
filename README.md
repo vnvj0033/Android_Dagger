@@ -1,5 +1,6 @@
 
 ## Subcomponent
+Component <- Module <- Subcomponent
 ````kotlin
 @Subcomponent
 interface RegistrationComponent {
