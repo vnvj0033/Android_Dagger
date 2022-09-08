@@ -2,6 +2,7 @@
 ## Subcomponent
 Component <- Module <- Subcomponent
 Subcomponent를 사용해 Component의 Module을 분리
+Component에서 제공하는 Subcomponent가 아닌 Module의 provides나 binds를 모두 공유
 ````kotlin
 @Subcomponent
 interface RegistrationComponent {
