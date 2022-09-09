@@ -12,9 +12,7 @@ class SandboxActivity: AppCompatActivity() {
     lateinit var model: Model
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        val module = DaggerMainComponent.factory().create(this).subcomponentModule().create(this)
-
-        module.v2String()
+        DaggerMainComponent.factory().create(this).subcomponentModule().create(this)
 
         super.onCreate(savedInstanceState)
 
