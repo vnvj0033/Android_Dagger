@@ -29,21 +29,12 @@ android {
         targetSdkVersion 32
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "com.example.android.dagger.MyCustomTestRunner"
+        testInstrumentationRunner "com.example.android.dagger.MyCustomTestRunner" // used  Application in test
     }
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
-    }
-    sourceSets {
-        String sharedTestDir = 'src/sharedTest/java'
-        test {
-            java.srcDir sharedTestDir
-        }
-        androidTest {
-            java.srcDir sharedTestDir
         }
     }
     compileOptions {
@@ -73,4 +64,5 @@ dependencies {
     def dagger_version = "2.40"
     implementation "com.google.dagger:dagger:$dagger_version"
     kapt "com.google.dagger:dagger-compiler:$dagger_version"
+    kaptAndroidTest "com.google.dagger:dagger-compiler:$dagger_version"
 }
