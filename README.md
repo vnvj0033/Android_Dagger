@@ -1,4 +1,42 @@
 
+## Qualifiers
+같은 타입의 provides를 구별
+````kotlin
+@Retention(AnnotationRetention.BINARY)
+@Qualifier
+annotation class RegistrationStorage
+
+@Retention(AnnotationRetention.BINARY)
+@Qualifier
+annotation class LoginStorage
+
+@Module
+class StorageModule {
+
+    @RegistrationStorage
+    @Provides
+    fun provideRegistrationStorage(context: Context): Storage {
+        return SharedPreferencesStorage("registration", context)
+    }
+
+    @LoginStorage
+    @Provides
+    fun provideLoginStorage(context: Context): Storage {
+        return SharedPreferencesStorage("login", context)
+    }
+}
+
+// use in a method
+class ClassDependingOnStorage(@RegistrationStorage private val storage: Storage) 
+
+// use as an injected field
+class ClassDependingOnStorage {
+
+    @Inject
+    @field:RegistrationStorage lateinit var storage: Storage
+}
+````
+
 ## Dagger end to end test
 Application에 영향이 있는 테스트는 Fake객체를 사용 
 ````kotlin
