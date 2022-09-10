@@ -16,6 +16,7 @@
 
 package com.example.android.dagger.user
 
+import com.example.android.dagger.di.LoginStorage
 import com.example.android.dagger.storage.Storage
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -29,7 +30,7 @@ private const val PASSWORD_SUFFIX = "password"
  */
 @Singleton
 class UserManager @Inject constructor(
-    private val storage: Storage,
+    @LoginStorage private val storage: Storage,
     private val userComponentFactory: UserComponent.Factory
 ) {
 
