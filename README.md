@@ -1,4 +1,28 @@
 
+## Dagger end to end test
+Application에 영향이 있는 테스트는 Fake객체를 사용 
+````kotlin
+@Module
+abstract class TestStorageModule {
+
+    // Makes Dagger provide FakeStorage when a Storage type is requested
+    @Binds
+    abstract fun provideStorage(storage: FakeStorage): Storage
+}
+
+class FakeStorage @Inject constructor(): Storage { ... }
+
+
+@Singleton
+@Component(modules = [TestStorageModule::class, AppSubcomponents::class])
+interface TestAppComponent : AppComponent
+
+// app/build.gradle
+dependencies {
+    kaptAndroidTest "com.google.dagger:dagger-compiler:$dagger_version"
+}
+````
+
 ## use custom Application in test
 계측 테스트 Application을 지정
 ````kotlin
