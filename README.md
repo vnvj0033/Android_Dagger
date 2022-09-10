@@ -1,4 +1,34 @@
 
+
+## Dagger unit test
+Dagger을 직접 호출할 필요 없이 mock을 사용
+````kotlin
+
+private lateinit var viewModel: LoginViewModel
+private lateinit var userManager: UserManager
+private lateinit var userComponentFactory: UserComponent.Factory
+private lateinit var userComponent: UserComponent
+
+@Before
+fun setup() {
+    userManager = mock(UserManager::class.java)
+    viewModel = LoginViewModel(userManager)
+    
+    userComponentFactory = Mockito.mock(UserComponent.Factory::class.java)
+    userComponent = Mockito.mock(UserComponent::class.java)
+    `when`(userComponentFactory.create()).thenReturn(userComponent)
+}
+
+@Test
+fun `Get username`() {
+    `when`(userManager.username).thenReturn("Username")
+
+    val username = viewModel.getUsername()
+
+    assertEquals("Username", username)
+}
+````
+
 ## Subcomponent
 Component <- Module <- Subcomponent
 Subcomponent를 사용해 Component의 Module을 분리
