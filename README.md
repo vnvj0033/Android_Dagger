@@ -1,4 +1,22 @@
 
+## use custom Application in test
+계측 테스트 Application을 지정
+````kotlin
+// class in com.example.android.dagger.MyCustomTestRunner
+class MyCustomTestRunner : AndroidJUnitRunner() {
+
+    override fun newApplication(cl: ClassLoader?, name: String?, context: Context?): Application {
+        return super.newApplication(cl, MyTestApplication::class.java.name, context)
+    }
+}
+
+// app/build.gradle
+android {
+    defaultConfig {
+        testInstrumentationRunner "com.example.android.dagger.MyCustomTestRunner"
+    }
+}
+````
 
 ## Dagger unit test
 Dagger을 직접 호출할 필요 없이 mock을 사용
