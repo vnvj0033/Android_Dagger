@@ -1,20 +1,17 @@
 package com.example.android.dagger.sandbox
 
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import javax.inject.Inject
 
 class SandboxActivity: AppCompatActivity() {
-    @Inject
-    lateinit var string: String
-    @Inject
-    lateinit var model: Model
+    companion object {
+        lateinit var appComponent: AppComponent
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        appComponent = DaggerAppComponent.factory().create(this)
 
         super.onCreate(savedInstanceState)
 
-        Log.d("testsyyoo", (model.getString() == string).toString())
     }
 }
