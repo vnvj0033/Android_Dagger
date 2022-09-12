@@ -1,6 +1,10 @@
 package com.example.android.dagger.sandbox.user
 
 import android.os.Bundle
+import android.util.Log
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.android.dagger.sandbox.SandboxActivity
 import javax.inject.Inject
@@ -9,11 +13,16 @@ class UserFragment: Fragment() {
 
     @Inject lateinit var user: Users
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        val module = SandboxActivity.appComponent.subcomponentModule().create(requireContext())
-        module.inject(this)
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        return View(context)
+    }
 
-        super.onCreate(savedInstanceState)
-
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        Log.d("testsyyoo", "userFragment : $user")
     }
 }

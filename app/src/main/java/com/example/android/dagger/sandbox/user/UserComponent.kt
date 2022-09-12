@@ -12,5 +12,5 @@ interface UserComponent {
         fun create(@BindsInstance context: Context): UserComponent
     }
 
-    fun inject(activity: UserFragment)
+    fun inject(userFragment: UserFragment)
 }
