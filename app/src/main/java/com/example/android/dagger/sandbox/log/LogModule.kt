@@ -7,7 +7,7 @@ import dagger.Provides
 class LogModule {
 
     @Provides
-    fun providesLogTitle() = "log title"
+    fun providesLogTitle() = "log_title"
 
     @Provides
     fun providesLog(title: String) = Log(title)

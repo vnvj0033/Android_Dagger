@@ -5,7 +5,7 @@ import com.example.android.dagger.sandbox.user.UserComponent
 import dagger.BindsInstance
 import dagger.Subcomponent
 
-@Subcomponent
+@Subcomponent(modules = [LogModule::class])
 interface LogComponent {
 
     @Subcomponent.Factory
