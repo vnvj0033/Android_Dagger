@@ -4,7 +4,7 @@ import android.content.Context
 import dagger.BindsInstance
 import dagger.Subcomponent
 
-@Subcomponent
+@Subcomponent(modules = [UserModule::class])
 interface UserComponent {
 
     @Subcomponent.Factory

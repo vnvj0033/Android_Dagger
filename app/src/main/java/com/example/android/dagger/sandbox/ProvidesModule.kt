@@ -10,22 +10,6 @@ import javax.inject.Named
 class ProvidesModule {
 
     @Provides
-    @Named("id")
-    fun id() = "idiii"
-
-    @Provides
-    @Named("password")
-    fun password() = "pass pass"
-
-    @Provides
-    fun providesUser(
-        @Named("id") id: String,
-        @Named("password") password: String
-    ) = Users(id, password)
-
-
-
-    @Provides
     @Named("log_title")
     fun providesLogTitle() = "log title"
 
