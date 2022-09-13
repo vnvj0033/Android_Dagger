@@ -6,7 +6,7 @@ import com.example.android.dagger.sandbox.user.UserComponent
 import dagger.BindsInstance
 import dagger.Component
 
-@Component(modules = [SubModule::class, ProvidesModule::class])
+@Component(modules = [SubModule::class])
 interface AppComponent {
 
     @Component.Factory
