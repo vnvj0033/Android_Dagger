@@ -110,11 +110,11 @@ fun `Get username`() {
 ````
 
 ## Subcomponent
-Component <- Module <- Subcomponent
+Component <- Module <- Subcomponent <- Module
 Subcomponent를 사용해 Component의 Module을 분리
 Component에서 제공하는 Subcomponent가 아닌 Module의 provides나 binds를 모두 공유
 ````kotlin
-@Subcomponent
+@Subcomponent // 필요시 모듈 제공 가능 @Subcomponent(module = [subModule::class])
 interface RegistrationComponent {
     @Subcomponent.Factory
     interface Factory {
