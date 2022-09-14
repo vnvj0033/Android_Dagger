@@ -12,4 +12,5 @@ interface SettingComponent {
     }
 
     fun inject(activity: SandboxActivity)
+    fun inject(fragment: SettingFragment)
 }
