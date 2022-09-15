@@ -1,7 +1,6 @@
 package com.example.android.dagger.sandbox.log
 
 import android.content.Context
-import com.example.android.dagger.sandbox.user.UserComponent
 import dagger.BindsInstance
 import dagger.Subcomponent
 
