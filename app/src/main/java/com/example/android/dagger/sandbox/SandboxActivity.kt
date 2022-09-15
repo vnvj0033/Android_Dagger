@@ -24,7 +24,6 @@ class SandboxActivity: AppCompatActivity() {
         setContentView(R.layout.fragment_enter_details)
 
         userFragment.show()
-
         logFragment.show()
     }
 

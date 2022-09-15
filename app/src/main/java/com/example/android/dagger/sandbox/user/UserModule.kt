@@ -2,7 +2,9 @@ package com.example.android.dagger.sandbox.user
 
 import dagger.Module
 import dagger.Provides
+import javax.inject.Qualifier
 
+@UserScope
 @Module
 class UserModule {
 
@@ -13,3 +15,7 @@ class UserModule {
     fun providesUser(id: String) = Users(id)
 
 }
+
+@Retention(AnnotationRetention.BINARY)
+@Qualifier
+annotation class UserScope

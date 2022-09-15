@@ -2,9 +2,7 @@ package com.example.android.dagger.sandbox
 
 import android.content.Context
 import com.example.android.dagger.sandbox.log.LogComponent
-import com.example.android.dagger.sandbox.setting.Setting
 import com.example.android.dagger.sandbox.setting.SettingComponent
-import com.example.android.dagger.sandbox.setting.SettingScope
 import com.example.android.dagger.sandbox.user.UserComponent
 import dagger.BindsInstance
 import dagger.Component
