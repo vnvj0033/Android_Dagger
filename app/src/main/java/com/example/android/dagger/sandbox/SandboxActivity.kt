@@ -18,7 +18,7 @@ class SandboxActivity: AppCompatActivity() {
         appComponent.userComponent().create(this).inject(userFragment)
         appComponent.logComponent().create(this).inject(logFragment)
 
-        appComponent.setting().update()
+        appComponent.settingComponent().create().inject(this)
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.fragment_enter_details)
