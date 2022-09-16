@@ -10,20 +10,21 @@ import com.example.android.dagger.sandbox.user.UserFragment
 
 class SandboxActivity: AppCompatActivity() {
 
-    private val userFragment: UserFragment = UserFragment()
-    private val logFragment: LogFragment = LogFragment()
-    private val settingFragment: SettingFragment = SettingFragment()
+    lateinit var userFragment: UserFragment
+    lateinit var logFragment: LogFragment
+    lateinit var settingFragment: SettingFragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        val appComponent = DaggerAppComponent.factory().create(this)
 
-        appComponent.userComponent().create(this).inject(userFragment)
-        appComponent.logComponent().create(this).inject(logFragment)
+        val appComponent = (applicationContext as App).appComponent
 
-        appComponent.settingComponent().create().inject(settingFragment)
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.fragment_enter_details)
+
+        appComponent.userComponent().create(this).inject(userFragment)
+        appComponent.logComponent().create(this).inject(logFragment)
+        appComponent.settingComponent().create().inject(settingFragment)
 
         userFragment.show()
         logFragment.show()
