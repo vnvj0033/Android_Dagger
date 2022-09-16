@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import javax.inject.Inject
 
-class SettingFragment: Fragment() {
+class SettingFragment @Inject constructor(): Fragment() {
 
     @Inject lateinit var setting: Setting
 

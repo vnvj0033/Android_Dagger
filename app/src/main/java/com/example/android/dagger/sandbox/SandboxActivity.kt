@@ -7,12 +7,13 @@ import com.example.android.dagger.R
 import com.example.android.dagger.sandbox.log.LogFragment
 import com.example.android.dagger.sandbox.setting.SettingFragment
 import com.example.android.dagger.sandbox.user.UserFragment
+import javax.inject.Inject
 
 class SandboxActivity: AppCompatActivity() {
 
-    lateinit var userFragment: UserFragment
-    lateinit var logFragment: LogFragment
-    lateinit var settingFragment: SettingFragment
+    @Inject lateinit var userFragment: UserFragment
+    @Inject lateinit var logFragment: LogFragment
+    @Inject lateinit var settingFragment: SettingFragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
 

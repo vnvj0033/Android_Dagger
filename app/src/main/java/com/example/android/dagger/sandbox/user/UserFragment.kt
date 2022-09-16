@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import com.example.android.dagger.sandbox.SandboxActivity
 import javax.inject.Inject
 
-class UserFragment: Fragment() {
+class UserFragment @Inject constructor(): Fragment() {
 
     @Inject lateinit var user: Users
 
