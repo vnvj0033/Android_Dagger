@@ -10,11 +10,11 @@ import dagger.Provides
 class FragmentModule {
 
     @Provides
-    fun bindUserFragment() =  UserFragment()
+    fun providesUserFragment() =  UserFragment()
 
     @Provides
-    fun bindSettingFragment()= SettingFragment()
+    fun providesSettingFragment()= SettingFragment()
 
     @Provides
-    fun bindLogFragment() = LogFragment()
+    fun providesLogFragment() = LogFragment()
 }
