@@ -18,7 +18,7 @@ class SandboxActivity: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
 
         val appComponent = (applicationContext as App).appComponent
-
+        appComponent.inject(this)
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.fragment_enter_details)

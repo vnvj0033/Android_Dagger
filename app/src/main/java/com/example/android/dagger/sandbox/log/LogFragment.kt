@@ -21,7 +21,7 @@ class LogFragment @Inject constructor() : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        android.util.Log.d("tetsyyoo", log.toString())
+        android.util.Log.d("testsyyoo", log.toString())
     }
 
 }
