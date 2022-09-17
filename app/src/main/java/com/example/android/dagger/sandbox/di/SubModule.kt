@@ -1,4 +1,4 @@
-package com.example.android.dagger.sandbox
+package com.example.android.dagger.sandbox.di
 
 import com.example.android.dagger.sandbox.log.LogComponent
 import com.example.android.dagger.sandbox.setting.SettingComponent

@@ -1,6 +1,7 @@
-package com.example.android.dagger.sandbox
+package com.example.android.dagger.sandbox.di
 
 import android.content.Context
+import com.example.android.dagger.sandbox.SandboxActivity
 import com.example.android.dagger.sandbox.log.LogComponent
 import com.example.android.dagger.sandbox.setting.SettingComponent
 import com.example.android.dagger.sandbox.user.UserComponent
