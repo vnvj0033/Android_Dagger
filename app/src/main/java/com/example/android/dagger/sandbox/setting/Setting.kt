@@ -8,7 +8,8 @@ class Setting @Inject constructor(
 
     lateinit var setting: SettingComponent
 
-    fun update() {
+    fun update(): String{
         setting = settingComponent.create()
+        return "success"
     }
 }

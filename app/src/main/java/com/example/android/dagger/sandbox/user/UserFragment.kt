@@ -11,6 +11,8 @@ import javax.inject.Inject
 
 class UserFragment @Inject constructor() : Fragment() {
 
+    @Inject lateinit var users: Users
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -21,5 +23,6 @@ class UserFragment @Inject constructor() : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        Log.d("testsyyoo", users.toString())
     }
 }

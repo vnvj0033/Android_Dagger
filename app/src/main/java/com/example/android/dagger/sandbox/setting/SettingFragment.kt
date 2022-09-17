@@ -10,6 +10,8 @@ import javax.inject.Inject
 
 class SettingFragment @Inject constructor() : Fragment() {
 
+    @Inject lateinit var setting: Setting
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -20,5 +22,6 @@ class SettingFragment @Inject constructor() : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        Log.d("testsyyoo", setting.update())
     }
 }
