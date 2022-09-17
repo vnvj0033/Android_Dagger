@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import javax.inject.Inject
 
-class LogFragment : Fragment() {
+class LogFragment @Inject constructor() : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater,

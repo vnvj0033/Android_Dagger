@@ -3,18 +3,18 @@ package com.example.android.dagger.sandbox
 import com.example.android.dagger.sandbox.log.LogFragment
 import com.example.android.dagger.sandbox.setting.SettingFragment
 import com.example.android.dagger.sandbox.user.UserFragment
-import dagger.Binds
 import dagger.Module
+import dagger.Provides
 
 @Module
-abstract class FragmentModule {
+class FragmentModule {
 
-    @Binds
-    abstract fun bindUserFragment(): UserFragment
+    @Provides
+    fun bindUserFragment() =  UserFragment()
 
-    @Binds
-    abstract fun bindSettingFragment(): SettingFragment
+    @Provides
+    fun bindSettingFragment()= SettingFragment()
 
-    @Binds
-    abstract fun bindLogFragment(): LogFragment
+    @Provides
+    fun bindLogFragment() = LogFragment()
 }
