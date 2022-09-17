@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.android.dagger.sandbox.SandboxActivity
+import com.example.android.dagger.sandbox.App
 import javax.inject.Inject
 
 class UserFragment @Inject constructor() : Fragment() {
@@ -18,6 +18,10 @@ class UserFragment @Inject constructor() : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        val appComponent = (requireContext().applicationContext as App).appComponent
+
+        appComponent.userComponent().create(requireContext()).inject(this)
+
         return View(context)
     }
 

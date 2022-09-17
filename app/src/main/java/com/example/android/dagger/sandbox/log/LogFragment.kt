@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.example.android.dagger.sandbox.App
 import javax.inject.Inject
 
 class LogFragment @Inject constructor() : Fragment() {
@@ -16,6 +17,9 @@ class LogFragment @Inject constructor() : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        val appComponent = (requireContext().applicationContext as App).appComponent
+        appComponent.logComponent().create(requireContext()).inject(this)
+
         return View(context)
     }
 
