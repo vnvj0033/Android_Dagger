@@ -9,4 +9,5 @@ class SettingModule {
 
     @Provides
     fun setting(factory: SettingComponent.Factory) = Setting(factory)
+
 }

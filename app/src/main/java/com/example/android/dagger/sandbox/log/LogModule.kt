@@ -14,6 +14,7 @@ class LogModule {
     @Provides
     fun providesLog(title: String) = Log(title)
 
+
 }
 
 

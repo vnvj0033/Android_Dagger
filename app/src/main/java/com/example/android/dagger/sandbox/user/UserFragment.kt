@@ -9,9 +9,7 @@ import androidx.fragment.app.Fragment
 import com.example.android.dagger.sandbox.SandboxActivity
 import javax.inject.Inject
 
-class UserFragment @Inject constructor(): Fragment() {
-
-    @Inject lateinit var user: Users
+class UserFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -23,6 +21,5 @@ class UserFragment @Inject constructor(): Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        Log.d("testsyyoo", "userFragment : $user")
     }
 }

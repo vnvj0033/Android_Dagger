@@ -8,10 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import javax.inject.Inject
 
-class LogFragment @Inject constructor(): Fragment() {
-
-    @Inject
-    lateinit var log: Log
+class LogFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -23,8 +20,6 @@ class LogFragment @Inject constructor(): Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        android.util.Log.d("testsyyoo", "logFragment $log")
 
     }
 

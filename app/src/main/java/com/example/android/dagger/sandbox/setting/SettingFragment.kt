@@ -8,9 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import javax.inject.Inject
 
-class SettingFragment @Inject constructor(): Fragment() {
-
-    @Inject lateinit var setting: Setting
+class SettingFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -22,7 +20,5 @@ class SettingFragment @Inject constructor(): Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setting.settingComponent.create().inject(this)
-        Log.d("testsyyoo", "SettingFragment : $setting")
     }
 }
