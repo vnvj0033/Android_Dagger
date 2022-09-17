@@ -1,4 +1,26 @@
 
+## Sandbox Separation fragment
+sandbox - Fragment 별로 Component 분리
+
+AppComponent (modules = SubComponentModule, FragmentModule)
+- userComponent() : UserComponent.Factory
+- logComponent() : LogComponent.Factory
+- settingComponent(): SettingComponent.Factory 
+- inject(sandboxActivity: SandboxActivity)
+
+FragmentModule
+- providesUserFragment() =  UserFragment()
+
+SubComponentModule (subcomponents = UserComponent, LogComponent, SettingComponent)
+
+UserComponent (modules = UserModule)
+
+UserModule
+- providesUser(id: String) = Users(id)
+
+
+
+
 ## Qualifiers
 같은 타입의 provides를 구별
 ````kotlin
