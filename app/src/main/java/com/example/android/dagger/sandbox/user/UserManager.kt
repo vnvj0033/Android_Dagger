@@ -4,5 +4,5 @@ import javax.inject.Inject
 
 class UserManager @Inject constructor(private val users: Users) {
 
-    fun getUsers() = users
+    fun getUser() = users
 }

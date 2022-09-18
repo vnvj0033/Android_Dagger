@@ -24,8 +24,6 @@ class SandboxActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.fragment_enter_details)
 
-        Log.d("testsyyoo", appComponent.userManager().getUsers().toString())
-
         userFragment.show()
         logFragment.show()
         settingFragment.show()

@@ -13,4 +13,6 @@ interface UserComponent {
     }
 
     fun inject(userFragment: UserFragment)
+
+    fun userManager() : UserManager
 }

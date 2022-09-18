@@ -18,10 +18,9 @@ class UserFragment @Inject constructor() : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val appComponent = (requireContext().applicationContext as App).appComponent
-
-        appComponent.userComponent().create(requireContext()).inject(this)
-
+        val appComponent = (requireContext().applicationContext as App).appComponent.userComponent().create(requireContext())
+        appComponent.inject(this)
+        Log.d("testsyyoo", appComponent.userManager().toString())
         return View(context)
     }
 

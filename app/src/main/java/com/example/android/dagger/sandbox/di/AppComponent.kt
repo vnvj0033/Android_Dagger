@@ -5,7 +5,6 @@ import com.example.android.dagger.sandbox.SandboxActivity
 import com.example.android.dagger.sandbox.log.LogComponent
 import com.example.android.dagger.sandbox.setting.SettingComponent
 import com.example.android.dagger.sandbox.user.UserComponent
-import com.example.android.dagger.sandbox.user.UserManager
 import dagger.BindsInstance
 import dagger.Component
 
@@ -20,8 +19,6 @@ interface AppComponent {
     fun userComponent() : UserComponent.Factory
     fun logComponent() : LogComponent.Factory
     fun settingComponent(): SettingComponent.Factory
-
-    fun userManager(): UserManager
 
     fun inject(sandboxActivity: SandboxActivity)
 }
