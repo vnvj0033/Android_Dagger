@@ -1,6 +1,7 @@
 package com.example.android.dagger.sandbox
 
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.android.dagger.R
@@ -22,6 +23,8 @@ class SandboxActivity: AppCompatActivity() {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.fragment_enter_details)
+
+        Log.d("testsyyoo", appComponent.userManager().getUsers().toString())
 
         userFragment.show()
         logFragment.show()

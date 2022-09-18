@@ -21,7 +21,7 @@ interface AppComponent {
     fun logComponent() : LogComponent.Factory
     fun settingComponent(): SettingComponent.Factory
 
-    fun users(): UserManager
+    fun userManager(): UserManager
 
     fun inject(sandboxActivity: SandboxActivity)
 }
